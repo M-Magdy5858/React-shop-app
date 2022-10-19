@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
-import Card from 'react-bootstrap/Card';
+import Card from './card';
 
 function List() {
 
@@ -26,27 +25,13 @@ function List() {
 	return (
 		<>
 			<div className="container py-4">
-				<h1 className="text-info">Shop</h1>
+				<h1 className="my-3">Shop</h1>
 
 				<div className="row">
 					{products.map((product) => {
 						return (
-							<div className="col-md-3 mb-4">
-								<Card style={{ width: '100%' }} className="d-flex flex-column">
-                  <div className='w-100 overflow-hidden ' style={{height:'200px'}} >
-
-									<Card.Img variant="top" src={product.image}  className='w-75 '/>
-                  </div>
-									<Card.Body>
-										<Card.Title>{product.title}</Card.Title>
-										<Card.Text>
-                      <p className='text-info' >price : {product.price} EGP</p>
-                      {product.category}
-                      </Card.Text>
-                    
-                    <Link to={`/list/${product.id}`} > <a >SEE MORE</a></Link>
-									</Card.Body>
-								</Card>
+							<div key={product.id} className="col-md-3 mb-4">
+                <Card product={product}></Card>
 							</div>
 						);
 					})}

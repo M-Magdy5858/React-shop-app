@@ -1,0 +1,50 @@
+.cart-row {
+  border-bottom: 3px solid;
+}
+
+.cart-row .image {
+  border: 2px solid;
+}
+
+h5,
+h4,
+h1 {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 800;
+}
+
+.counter {
+  border: 2px solid;
+}
+
+.counter>span {
+  cursor: pointer;
+}
+
+.total-box {
+  border: 2px solid;
+}
+
+.total {
+  font-weight: bold;
+}
+
+input {
+  border: none;
+  background-color: #FAF4D6;
+}
+button.check{
+  position: relative;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  padding: 10px 35px;
+  border: 2px solid;
+  box-shadow: 3px 3px 0;
+  background-color: rgb(152, 252, 162);
+}
+
+button.check:hover{
+  bottom: 2px;
+  right: 2px;
+  box-shadow: 5px 5px 0;
+}

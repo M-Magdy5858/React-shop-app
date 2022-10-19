@@ -1,3 +1,32 @@
 .photo img{
-  width: 100%;
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  scale: 0.9;
+}
+.photo{
+  overflow: hidden;
+  border: 2px solid;
+  background-color: #fff;
+  box-shadow: 5px 5px 0 ;
+}
+
+.btns button{
+  position: relative;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  padding: 10px 35px;
+  border: 2px solid;
+  box-shadow: 3px 3px 0;
+}
+.btns .add{
+  background-color: rgb(152, 252, 162);
+}
+.btns .remove{
+  background-color: rgb(252, 152, 152);
+}
+.btns button:hover{
+  bottom: 5px;
+  right: 5px;
+  box-shadow: 8px 8px 0;
 }

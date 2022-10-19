@@ -1,22 +1,34 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { AiOutlineHome,AiOutlineShop,AiOutlineShoppingCart,AiOutlineHeart } from 'react-icons/ai'
+import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 import './style.css';
 
 function Navigation() {
+
+	const globalCartCount= useSelector(state=>state.cart.cartCount)
+
+
 	return (
 		<>
-			<Navbar bg="dark" variant="dark">
+			<Navbar bg="transparent"  className='border-bottom border-2 border-dark'>
 				<Container>
-					<Navbar.Brand >Navbar</Navbar.Brand>
-					<Nav className="ms-auto">
-						<Link to="/">
-							<a className='list-item text-white'>Home</a>
+					<Navbar.Brand className='fs-3 fw-bold nav-logo'> <span className='logo-1'>React</span> <span className='logo-2'>Shop</span> </Navbar.Brand>
+					<Nav className="ms-auto ">
+						<Link to="/" className="list-item navbar-link mx-3" title='Home'>
+							<AiOutlineHome/>
 						</Link>
-						<Link to="/list">
-							<a className='list-item text-white'>List</a>
+						<Link to="/list" className="list-item navbar-link mx-3" title='Shop'>
+							<AiOutlineShop/>
+						</Link>
+						<Link to="/wishlist" className="list-item navbar-link mx-3" title='WishList'>
+							<AiOutlineHeart/>
+						</Link>
+						<Link to="/cart" className="list-item navbar-link ms-3" title='Cart'>
+							<AiOutlineShoppingCart />  {globalCartCount ||''}
 						</Link>
 					</Nav>
 				</Container>
