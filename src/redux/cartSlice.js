@@ -17,7 +17,6 @@ export const cartSlice = createSlice({
 	initialState,
 	reducers: {
 		addToCart: (state, action) => {
-      console.log('ddd');
 			state.cartList.push(action.payload);
 			state.cartCount = getTotalCount(state.cartList);
 		},

@@ -1,6 +1,7 @@
 import './card.css';
 import { Link } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../../redux/cartSlice';
+import { addTowish, removeFromwish } from '../../redux/wishSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { MdOutlineAddShoppingCart, MdOutlineRemoveShoppingCart } from 'react-icons/md';
@@ -10,7 +11,11 @@ function Card({ product }) {
 	product = { ...product, inCart: 1 };
 
 	const globalCartList = useSelector((state) => state.cart.cartList);
+	const globalWishList = useSelector((state) => state.wish.wishList);
 	let isProductAdded = globalCartList.some((item) => item.id === product.id);
+	let isProductWished = globalWishList.some((item) => item.id === product.id);
+
+	console.log(product.id, 'wished==', isProductWished);
 	const dispatch = useDispatch();
 
 	const toastStyle = {
@@ -36,7 +41,7 @@ function Card({ product }) {
 					<div
 						type="button"
 						onClick={() => {
-							toast.error('Removed from cart!',{ style: toastStyle });
+							toast.error('Removed from cart!', { style: toastStyle });
 							dispatch(removeFromCart(product.id));
 						}}
 						className="add-cart position-absolute"
@@ -55,9 +60,30 @@ function Card({ product }) {
 						<MdOutlineAddShoppingCart className=" fs-4 text-success" />
 					</div>
 				)}
-				<div type="button" onClick={() => {}} className="add-wish position-absolute">
-					<AiOutlineHeart className=" fs-4 text-danger" />
-				</div>
+
+				{isProductWished ? (
+					<div
+						type="button"
+						onClick={() => {
+							toast.error('Removed from Wish List!', {icon: '💔', style: toastStyle });
+							dispatch(removeFromwish(product.id));
+						}}
+						className="add-wish position-absolute"
+					>
+						<AiFillHeart className=" fs-4 text-danger" />
+					</div>
+				) : (
+					<div
+						type="button"
+						onClick={() => {
+							toast.success('Added to Wish List!', {icon: '💖', style: toastStyle });
+							dispatch(addTowish(product));
+						}}
+						className="add-wish position-absolute"
+					>
+						<AiOutlineHeart className=" fs-4 text-danger" />
+					</div>
+				)}
 			</div>
 		</>
 	);
