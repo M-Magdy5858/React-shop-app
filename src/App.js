@@ -6,6 +6,8 @@ import Details from './components/list/Details';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Cart from './components/cart';
 import Wishlist from './components/wishlist';
+import SignUp from './components/register/sign-up';
+import Login from './components/register/login/login';
 
 function App() {
 	return (
@@ -19,6 +21,8 @@ function App() {
 
 				<Route path='/cart' element={<Cart/>}></Route>
 				<Route path='/wishlist' element={<Wishlist/>}></Route>
+				<Route path='/sign-up' element={<SignUp/>}></Route>
+				<Route path='/log-in' element={<Login/>}></Route>
 
 			</Routes>
 		</Router>

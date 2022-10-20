@@ -1,0 +1,41 @@
+label {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+form.register input,
+form.register select {
+  border-radius: 0;
+  border-color: black;
+}
+
+form.register input:focus,
+form.register select:focus {
+  border-color: black;
+  box-shadow: 3px 3px 0;
+}
+
+form.register input:checked {
+  background-color: rgb(44, 167, 44);
+  border-color: black;
+}
+
+form.register button {
+  position: relative;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  padding: 10px 35px;
+  border: 2px solid;
+  box-shadow: 3px 3px 0;
+  background-color: rgb(152, 252, 162);
+}
+form.register button:hover{
+  bottom: 2px;
+  right:  2px;
+  box-shadow: 5px 5px 0;;
+}
+form.register button:active{
+  top: 3px;
+  left: 3px;
+  box-shadow: none;
+}

@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { AiOutlineHome,AiOutlineShop,AiOutlineShoppingCart,AiOutlineHeart } from 'react-icons/ai'
+import { AiOutlineHome,AiOutlineShop,AiOutlineShoppingCart,AiOutlineHeart,AiOutlineImport } from 'react-icons/ai'
 import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
@@ -27,8 +27,11 @@ function Navigation() {
 						<Link to="/wishlist" className="list-item navbar-link mx-3" title='WishList'>
 							<AiOutlineHeart/>
 						</Link>
-						<Link to="/cart" className="list-item navbar-link ms-3" title='Cart'>
-							<AiOutlineShoppingCart />  {globalCartCount ||''}
+						<Link to="/cart" className="list-item navbar-link mx-3" title='Cart'>
+							<AiOutlineShoppingCart /> <small>{globalCartCount ||''}</small> 
+						</Link>
+						<Link to="/log-in" className="list-item navbar-link ms-3" title='Log in'>
+							<AiOutlineImport/>
 						</Link>
 					</Nav>
 				</Container>

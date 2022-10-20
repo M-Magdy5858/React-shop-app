@@ -1,11 +1,10 @@
-import {  removeFromCart, increament, decreament } from '../../redux/cartSlice';
+import { removeFromCart, increament, decreament } from '../../redux/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdOutlineRemoveShoppingCart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 import './cart.css';
-import empty from '../../assets/cart-empty.png'
-;
+import empty from '../../assets/cart-empty.png';
 function Cart() {
 	const globalCartCount = useSelector((state) => state.cart.cartCount);
 	const globalCartList = useSelector((state) => state.cart.cartList);
@@ -16,19 +15,18 @@ function Cart() {
 		globalCartList.forEach((item) => {
 			tot += item.price * item.inCart;
 		});
-		console.log(tot);
 		return tot.toFixed(2);
 	};
 	if (!globalCartCount)
 		return (
 			<div className=" d-flex justify-content-center mt-5">
-				<div className='text-center' >
+				<div className="text-center">
 					<img src={empty} alt="" />
-          <h1 className='my-3'>Empty Cart</h1>
-          <hr />
-          <Link to={'/list'} className='link-dark'>
-          Go to shop
-          </Link>
+					<h1 className="my-3">Empty Cart</h1>
+					<hr />
+					<Link to={'/list'} className="link-dark">
+						Go to shop
+					</Link>
 				</div>
 			</div>
 		);
@@ -43,7 +41,7 @@ function Cart() {
 						return (
 							<div key={item.id} className="row cart-row py-3 my-4">
 								<div className="col-3">
-									<div className="image w-100">
+									<div className="image w-75">
 										<img src={item.image} className="w-100" alt="" />
 									</div>
 								</div>
@@ -95,13 +93,13 @@ function Cart() {
 						<h4 className="">Your Order</h4>
 						<i className="text-muted">number of items: {globalCartCount}</i>
 						<br />
-						<input type="text"  placeholder='Enter promo code'/>
+						<input type="text" placeholder="Enter promo code" />
 						<hr />
 						<div className="d-flex justify-content-between total">
 							<p>Total :</p>
 							<p>{GetTotal()} $</p>
 						</div>
-						<button className='check'>Check Out</button>
+						<button className="check">Check Out</button>
 					</div>
 				</div>
 			</div>
