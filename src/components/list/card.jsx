@@ -2,8 +2,9 @@ import './card.css';
 import { Link } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../../redux/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import {  AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { MdOutlineAddShoppingCart, MdOutlineRemoveShoppingCart } from 'react-icons/md';
+import toast from 'react-hot-toast';
 
 function Card({ product }) {
 	product = { ...product, inCart: 1 };
@@ -12,6 +13,13 @@ function Card({ product }) {
 	let isProductAdded = globalCartList.some((item) => item.id === product.id);
 	const dispatch = useDispatch();
 
+	const toastStyle = {
+		fontFamily: "'Courier New', Courier, monospace",
+		fontWeight: 'bold',
+		borderRadius: 0,
+		border: '2px solid black',
+		boxShadow: '3px 3px 0 black',
+	};
 
 	return (
 		<>
@@ -19,15 +27,16 @@ function Card({ product }) {
 				<div className="image overflow-hidden p-2 d-flex align-items-center justify-content-center">
 					<img src={product.image} className="w-100" alt="" />
 				</div>
-					<Link to={`/list/${product.id}`} className="foot d-flex w-100 justify-content-between p-2">
-						<div className="title text-truncate">{product.title}</div>
-						<div className="price fw-bolder ">{product.price}$</div>
-					</Link>
+				<Link to={`/list/${product.id}`} className="foot d-flex w-100 justify-content-between p-2">
+					<div className="title text-truncate">{product.title}</div>
+					<div className="price fw-bolder ">{product.price}$</div>
+				</Link>
 
 				{isProductAdded ? (
 					<div
 						type="button"
 						onClick={() => {
+							toast.error('Removed from cart!',{ style: toastStyle });
 							dispatch(removeFromCart(product.id));
 						}}
 						className="add-cart position-absolute"
@@ -38,6 +47,7 @@ function Card({ product }) {
 					<div
 						type="button"
 						onClick={() => {
+							toast.success('Added to cart!', { style: toastStyle });
 							dispatch(addToCart(product));
 						}}
 						className="add-cart position-absolute"

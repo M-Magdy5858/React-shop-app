@@ -8,10 +8,12 @@ import Cart from './components/cart';
 import Wishlist from './components/wishlist';
 import SignUp from './components/register/sign-up';
 import Login from './components/register/login/login';
+import NotFound from './components/404/NotFound';
 
 function App() {
 	return (
-		<Router>
+    
+    <Router>
 			<Navigation></Navigation>
 
 			<Routes>
@@ -23,6 +25,8 @@ function App() {
 				<Route path='/wishlist' element={<Wishlist/>}></Route>
 				<Route path='/sign-up' element={<SignUp/>}></Route>
 				<Route path='/log-in' element={<Login/>}></Route>
+
+				<Route path='/*' element={<NotFound />}></Route>
 
 			</Routes>
 		</Router>

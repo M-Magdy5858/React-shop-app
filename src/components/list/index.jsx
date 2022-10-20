@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import Card from './card';
+import toast, { Toaster } from 'react-hot-toast';
 
 function List() {
-
 	const [products, setProducts] = useState(null);
 
 	useEffect(() => {
@@ -24,6 +24,9 @@ function List() {
 
 	return (
 		<>
+			<div>
+				<Toaster position="top-center" />
+			</div>
 			<div className="container py-4">
 				<h1 className="my-3">Shop</h1>
 
@@ -31,7 +34,7 @@ function List() {
 					{products.map((product) => {
 						return (
 							<div key={product.id} className="col-md-3 mb-4">
-                <Card product={product}></Card>
+								<Card product={product}></Card>
 							</div>
 						);
 					})}
