@@ -16,7 +16,7 @@ function Details() {
 	});
 
 	const globalCartList = useSelector((state) => state.cart.cartList);
-	let isProductAdded = globalCartList.some((item) => item.id === product.id);
+	let isProductAdded = globalCartList.some((item) => item.id === product?.id);
 	const dispatch = useDispatch();
 
 	if (!product) {
