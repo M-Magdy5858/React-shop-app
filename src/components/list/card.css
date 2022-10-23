@@ -51,12 +51,12 @@
   font-size: 1.2rem;
 }
 
-.add-cart {
+.product-card .add-cart {
   top: 2%;
   right: 5%;
 }
 
-.add-wish {
+.product-card .add-wish {
   top: 2%;
   left: 5%;
 }

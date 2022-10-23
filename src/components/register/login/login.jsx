@@ -24,6 +24,7 @@ function Login() {
 		<>
 			<div className="container mt-5">
 				<form className="w-75 mx-auto register" onSubmit={handleSubmit(onSubmit)}>
+        <h1 className='mb-5'>Log in</h1>
 					<div className="mb-3">
 						<label className="form-label">Email address</label>
 						<input className="form-control" id="email" {...register('email', { required: true, pattern: /^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$/i })} />
@@ -39,7 +40,7 @@ function Login() {
 					</div>
 
 					<button type="submit" className=" rounded-0">
-						Submit
+						Log-in
 					</button>
 
 

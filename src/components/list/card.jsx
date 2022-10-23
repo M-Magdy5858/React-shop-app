@@ -15,7 +15,6 @@ function Card({ product }) {
 	let isProductAdded = globalCartList.some((item) => item.id === product.id);
 	let isProductWished = globalWishList.some((item) => item.id === product.id);
 
-	console.log(product.id, 'wished==', isProductWished);
 	const dispatch = useDispatch();
 
 	const toastStyle = {
@@ -90,22 +89,3 @@ function Card({ product }) {
 }
 
 export default Card;
-
-{
-	/* <div className="content d-flex flex-column justify-content-between h-100 p-3">
-<div className="head d-flex justify-content-between">
-  <div className="title">{product.title}</div>
-  <div className="price text-muted">{product.price} $</div>
-</div>
-<div>{product.category}</div>
-<hr />
-<div className="btns">
-  <button type='button' onClick={()=>{addClick(product)}} className="btn">Add to cart</button>
-
-  <Link to={`/list/${product.id}`} className="link">
-    {' '}
-    SEE MORE
-  </Link>
-</div>
-</div> */
-}

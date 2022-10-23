@@ -18,8 +18,9 @@ function SignUp() {
 	console.log('errors', errors);
 	return (
 		<>
-			<div className="container mt-5" onSubmit={handleSubmit(onSubmit)}>
-				<form className="w-75 mx-auto register">
+			<div className="container mt-5">
+				<form className="w-75 mx-auto register"  onSubmit={handleSubmit(onSubmit)}>
+          <h1 className='mb-4'>Sign Up</h1>
 					<div className="mb-3">
 						<label className="form-label">User Name</label>
 						<input type="text" className="form-control" id="uname" {...register('uname', { required: true, maxLength: 20 })} />

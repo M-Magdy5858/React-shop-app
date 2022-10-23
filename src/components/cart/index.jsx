@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { MdOutlineRemoveShoppingCart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
-
 import './cart.css';
 import empty from '../../assets/cart-empty.png';
+
 function Cart() {
 	const globalCartCount = useSelector((state) => state.cart.cartCount);
 	const globalCartList = useSelector((state) => state.cart.cartList);
@@ -68,7 +68,7 @@ function Cart() {
 									<div className="col-5 d-flex flex-column justify-content-between">
 										<div>
 											<h5>{item.title}</h5>
-											<i className="text-muted">price {item.price}</i>
+											<i className="text-muted">price {item.price} $</i>
 										</div>
 										<p>Total is {total} $</p>
 									</div>

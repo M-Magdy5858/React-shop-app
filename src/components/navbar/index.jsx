@@ -10,6 +10,7 @@ import './style.css';
 function Navigation() {
 
 	const globalCartCount= useSelector(state=>state.cart.cartCount)
+	const globalWishCount= useSelector(state=>state.wish.itemsCount)
 
 
 	return (
@@ -25,7 +26,7 @@ function Navigation() {
 							<AiOutlineShop/>
 						</Link>
 						<Link to="/wishlist" className="list-item navbar-link mx-3" title='WishList'>
-							<AiOutlineHeart/>
+							<AiOutlineHeart/> <small>{globalWishCount ||'' }</small>
 						</Link>
 						<Link to="/cart" className="list-item navbar-link mx-3" title='Cart'>
 							<AiOutlineShoppingCart /> <small>{globalCartCount ||''}</small> 
